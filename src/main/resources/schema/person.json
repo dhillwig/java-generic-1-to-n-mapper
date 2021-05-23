@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://person",
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "first_name": {
+      "description": "The first name.",
+      "type": "string",
+      "minLength": 2
+    },
+    "last_name": {
+      "description": "The last name.",
+      "type": "string",
+      "minLength": 2
+    },
+    "street": {
+      "description": "The address.",
+      "type": "string"
+    },
+    "postal_code": {
+      "description": "The postal code.",
+      "type": "string"
+    },
+    "city": {
+      "description": "The city.",
+      "type": "string"
+    },
+    "country": {
+      "description": "The country.",
+      "default": "Germany",
+      "enum": [
+        "Germany",
+        "United States of America"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "first_name",
+    "last_name",
+    "street",
+    "postal_code",
+    "city",
+    "country"
+  ]
+}

@@ -1,0 +1,32 @@
+name: Feature Branch
+
+on: push
+
+jobs:
+  test:
+    name: Build and run unit tests
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup JVM
+        uses: actions/setup-java@v1
+        with:
+          java-version: 14
+          java-package: jdk
+          architecture: x64
+
+      - name: Caching maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Maven compile
+        run: mvn -B clean compile
+
+      - name: Maven verify
+        run: mvn -B clean verify

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://user",
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "first_name": {
+      "description": "The first name.",
+      "type": "string"
+    },
+    "last_name": {
+      "description": "The last name.",
+      "type": "string"
+    },
+    "login_name": {
+      "description": "The generated login name.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "first_name",
+    "last_name",
+    "login_name"
+  ]
+}
